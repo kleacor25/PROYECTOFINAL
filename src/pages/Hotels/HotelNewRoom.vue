@@ -32,7 +32,7 @@
                             </div>
                 
                             <div class="col-6">
-                                    <button @click="sendRoom" type="submit" class="btn btn-primary ">Actulizar</button>
+                                    <button @click="sendRoom" type="submit" class="btn btn-primary ">Guardar habitacion</button>
                             </div>
                         </div>
             
@@ -54,14 +54,11 @@
     export default {
 
  beforeMount() {
-        axios
-            .get('http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms/show/'+this.$route.params.PidRoom2)
-            .then( response => (this.room= response.data.data) )
+    this.room.hotel_id = "129"
     },
         
         data() {
             return {
-               
                 info: null,
                 roomtypes: [
                         {
@@ -105,9 +102,10 @@
         },
         methods: {
             sendRoom(){
+
                 axios({
-                    method: 'put',
-                    url: 'http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms/'+this.$route.params.PidRoom2,
+                    method: 'post',
+                    url: 'http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms',
                     data: this.room,
                     responseType: 'json',
                 }) 

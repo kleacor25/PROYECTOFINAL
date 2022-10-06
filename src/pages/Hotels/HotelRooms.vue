@@ -7,7 +7,7 @@
             </div>
             <div class="col">
                 <div class="float-end">
-                    <button  class="btn btn-success btn-sm">Crear habitacion </button>
+                    <button @click="viewNewRooms()" class="btn btn-success btn-sm">Crear habitacion </button>
                 </div>
             </div>
         </div>
@@ -64,6 +64,9 @@ export default {
     methods: {
         viewCreateRooms(id){
             this.$router.push({ name: 'HotelRoomsUpdate', params:{PidRoom2:id}})
+        },
+        viewNewRooms(){
+            this.$router.push({ name: 'HotelRoomsnewRoww'})
         },
         removeRoominHotel(id){
             axios
