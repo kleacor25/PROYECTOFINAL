@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Actulizar datos del Holtel {{this.$route.params.PidRoom}}</h3>
+        <h3>Actulizar datos del Holtel {{this.$route.params.Namehotel}}</h3>
     
         <div class="">
             <div class="row  mt-3">
@@ -37,8 +37,11 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col">
+                <div class="col-md-8">
                     <button @click="UpdateHotel" type="submit" class="btn btn-primary ">Actualizar Hotel</button>
+                </div> 
+                <div class="col-md-4">
+                    <button @click="removeHotel(this.$route.params.PidRoom)" type="submit" class="btn btn-danger ">Eliminar</button>
                 </div> 
                 <div class="col">
                     
@@ -48,12 +51,7 @@
             <div v-if="info" class="alert alert-primary mt-3" role="alert">
                 {{info}}
             </div>
-    
-    
-            
-        
-        
-        
+  
         </div>
     </div>
     </template>
@@ -102,7 +100,7 @@
                     responseType: 'json',
                 }) 
                 .then(response => {  
-                    this.info = response.data.message
+                    this.info = response.message
                     
                     this.hotel.name = null
                     this.hotel.nit = null
@@ -115,7 +113,34 @@
                     this.errores = error.response.data.errors
                     
                 })            
-            }
+            },
+            removeHotel(id){
+            axios
+            .delete('http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/hotels/'+id)
+            .then( (response) => {
+                console.log(response);
+
+                  this.info = response.data.message
+                    
+                    this.hotel.name = null
+                    this.hotel.nit = null
+                    this.hotel.address = null
+                    this.hotel.num_rooms = null
+                    this.hotel.city_id = null
+               this.refrestData() 
+            })
+ 
+            
+        },
+        refrestData(){
+            axios
+            .get('http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/hotels/'+this.$route.params.PidRoom)
+            .then( (response) => {
+                this.hotel = response.data.data,
+            console.log(response);
+            } )
+        },
+
         },
     }
     

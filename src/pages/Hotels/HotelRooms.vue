@@ -31,7 +31,13 @@
         </tr>
         </tbody>
     </table>
+    <div v-if="info" class="alert alert-primary mt-3" role="alert">
+        {{info}}
     </div>
+    </div>
+
+
+          
     </template>
     
     
@@ -51,6 +57,7 @@ export default {
     data() {
         return {
             data: [],
+            info: null,
         }
     },
     
@@ -63,11 +70,11 @@ export default {
             axios
             .delete('http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms/'+id)
             .then( (response) => {
+                
+                this.info = response.data.message
                 console.log(response);
                this.refrestData() 
-            })
-            alert(id)
-            
+            })         
         },
         refrestData(){
             axios
