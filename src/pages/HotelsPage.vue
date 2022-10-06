@@ -33,7 +33,7 @@
         <td> {{hotel.city.name}} </td>
         <td> {{hotel.num_rooms}} </td>
         <td><button @click="viewHotel(hotel.id)" class="btn btn-warning btn-sm">Detalle </button></td>
-        <td><button class="btn btn-success btn-sm">Habitaciones </button></td>
+        <td><button  @click="viewFormHotelNewRoom(hotel.id)" class="btn btn-success btn-sm">Habitaciones </button></td>
     </tr>
     </tbody>
 </table>
@@ -49,11 +49,15 @@ export default {
     beforeMount() {
         axios
             .get('http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/hotels')
-            .then( response => (this.hotels = response.data.data) )
+            .then( (response) => {
+                this.hotels = response.data.data;
+                console.log(response);
+            })
     },
     data() {
         return {
-            hotels: []
+            hotels: [],
+            num_rooms: []
         }
     },
     methods: {
@@ -61,8 +65,12 @@ export default {
             this.$router.push({ name: 'HotelCreate'})
         },
         viewHotel(id){
+
             alert(id)
-        }
+        },
+        viewFormHotelNewRoom(id) { 
+            this.$router.push({ name: 'HotelRooms',params:{detail:id}})
+        },
     },
 }
 

@@ -11,7 +11,8 @@ import App from './App.vue'
 import InicioPage from '@/pages/InicioPage.vue'
 import HotelsPage from '@/pages/HotelsPage.vue'
 import HotelCreate from '@/pages/Hotels/HotelCreate.vue'
-import RoomsPage from '@/pages/RoomsPage.vue'
+import RoomsPage from '@/pages/TypeRoomsPage.vue'
+import HotelRoomsPage from '@/pages/Hotels/HotelRooms.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -19,7 +20,8 @@ const router = createRouter({
         {path: '/',       name:'InicioPage', component: InicioPage},
         {path: '/hotels', name:'HotelsPage', component: HotelsPage},
         {path: '/hotelcreate', name:'HotelCreate', component: HotelCreate},
-        {path: '/rooms',  name:'RoomsPage',  component: RoomsPage}
+        {path: '/rooms',  name:'RoomsPage',  component: RoomsPage},
+        {path: '/hotelrooms',  name:'HotelRooms',  component: HotelRoomsPage}
     ]
 })
 

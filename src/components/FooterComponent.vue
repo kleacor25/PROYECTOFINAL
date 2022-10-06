@@ -1,7 +1,7 @@
 <template>
-<div>
+<div >
     <footer>
-      Desarrollo Web - Flexbox 2022-2
+        copy Copyright KLEACORP SOFT - 2022
     </footer>
 </div>
 </template>
