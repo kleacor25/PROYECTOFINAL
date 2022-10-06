@@ -33,7 +33,7 @@
         <td> {{hotel.city.name}} </td>
         <td> {{hotel.num_rooms}} </td>
         <td><button @click="viewHotel(hotel.id)" class="btn btn-warning btn-sm">Detalle </button></td>
-        <td><button  @click="viewFormHotelNewRoom(hotel.id)" class="btn btn-success btn-sm">Habitaciones </button></td>
+        <td><button  @click="viewFormHotelNewRoom(hotel.id,hotel.name)" class="btn btn-success btn-sm">Habitaciones </button></td>
     </tr>
     </tbody>
 </table>
@@ -57,7 +57,6 @@ export default {
     data() {
         return {
             hotels: [],
-            num_rooms: []
         }
     },
     methods: {
@@ -68,8 +67,8 @@ export default {
 
             alert(id)
         },
-        viewFormHotelNewRoom(id) { 
-            this.$router.push({ name: 'HotelRooms',params:{detail:id}})
+        viewFormHotelNewRoom(id, hotel) { 
+            this.$router.push({ name: 'HotelRooms',params:{Pid:id,Name:hotel}})
         },
     },
 }

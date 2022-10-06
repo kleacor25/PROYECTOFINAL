@@ -2,7 +2,8 @@
     <div>
         <div class="row mb-3">
             <div class="col">
-                <h4><i class="bi bi-door-open"></i>Hotel </h4>
+                <h4><i class="bi bi-door-open"></i>Habitaciones para el hotel {{this.$route.params.Name}} </h4>
+               
             </div>
             <div class="col">
                 <div class="float-end">
@@ -22,9 +23,9 @@
         </thead>
         <tbody>
         <tr v-for="rooms in data" :key="rooms.id">
-            <td> {{rooms}} </td>
-            <td> {{rooms}} </td>
-            <td> {{rooms}} </td>
+            <td> {{rooms.type.name}} </td>
+            <td> {{rooms.accommodation.name}} </td>
+            <td> {{rooms.quantity}} </td>
             <td><button @click="viewHotel(rooms.id)" class="btn btn-warning btn-sm">editar </button></td>
             <td><button class="btn btn-danger btn-sm">eleminar </button></td>
         </tr>
@@ -38,10 +39,10 @@
     import axios from 'axios'
    
 export default {
-    props:['details'],
+    props:['Pid','Name'],
     beforeMount() {
         axios
-            .get('http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms/'+this.details)
+            .get('http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms/'+this.$route.params.Pid)
             .then( (response) => {
                 this.data = response.data.data,
             console.log(response);
@@ -49,7 +50,7 @@ export default {
     },
     data() {
         return {
-            data: []
+            data: [],
         }
     },
     methods: {
