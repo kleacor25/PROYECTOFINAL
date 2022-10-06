@@ -22,7 +22,7 @@ const router = createRouter({
         {path: '/hotels', name:'HotelsPage', component: HotelsPage},
         {path: '/hotelcreate', name:'HotelCreate', component: HotelCreate},
         {path: '/rooms',  name:'RoomsPage',  component: RoomsPage},
-        {path: '/hotelroomsupdate',  name:'HotelRoomsUpdate',  component: HotelRoomsUpdate},
+        {path: '/hotelroomsupdate/:PidRoom2',  name:'HotelRoomsUpdate',  component: HotelRoomsUpdate},
         {path: '/hotelrooms/:Pid:Name',  name:'HotelRooms',  component: HotelRoomsPage},
         {path: '/updaterooms/:PidRoom:Namehotel',  name:'UpdateHotelRooms',  component: UpdateHotelRooms}
     ]

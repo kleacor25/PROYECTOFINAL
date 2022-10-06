@@ -26,7 +26,7 @@
             <td> {{rooms.type.name}} </td>
             <td> {{rooms.accommodation.name}} </td>
             <td> {{rooms.quantity}} </td>
-            <td><button @click="viewCreateRooms" class="btn btn-warning btn-sm">editar </button></td>
+            <td><button @click="viewCreateRooms(rooms.id)" class="btn btn-warning btn-sm">editar </button></td>
             <td><button @click="removeRoominHotel(rooms.id)"  class="btn btn-danger btn-sm">eleminar </button></td>
         </tr>
         </tbody>
@@ -62,8 +62,8 @@ export default {
     },
     
     methods: {
-        viewCreateRooms(){
-            this.$router.push({ name: 'HotelRoomsUpdate'})
+        viewCreateRooms(id){
+            this.$router.push({ name: 'HotelRoomsUpdate', params:{PidRoom2:id}})
         },
         removeRoominHotel(id){
             axios
