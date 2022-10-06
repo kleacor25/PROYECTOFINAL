@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h3>Form crear los hoteles</h3>
+    <h3>Datos del Hotel</h3>
 
     <div class="">
         <div class="row  mt-3">

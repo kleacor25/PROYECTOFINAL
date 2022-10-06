@@ -27,7 +27,7 @@
             <td> {{rooms.accommodation.name}} </td>
             <td> {{rooms.quantity}} </td>
             <td><button @click="viewHotel(rooms.id)" class="btn btn-warning btn-sm">editar </button></td>
-            <td><button class="btn btn-danger btn-sm">eleminar </button></td>
+            <td><button @click="removeRoominHotel(rooms.id)"  class="btn btn-danger btn-sm">eleminar </button></td>
         </tr>
         </tbody>
     </table>
@@ -53,11 +53,31 @@ export default {
             data: [],
         }
     },
+    
     methods: {
         viewHotel(id){
             
             alert(id)
-        }
+        },
+        removeRoominHotel(id){
+            axios
+            .delete('http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms/'+id)
+            .then( (response) => {
+                console.log(response);
+               this.refrestData() 
+            })
+            alert(id)
+            
+        },
+        refrestData(){
+            axios
+            .get('http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms/'+this.$route.params.Pid)
+            .then( (response) => {
+                this.data = response.data.data,
+            console.log(response);
+            } )
+        },
+
     },
 }
     

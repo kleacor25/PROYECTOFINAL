@@ -32,7 +32,7 @@
         <td> {{hotel.address}} </td>
         <td> {{hotel.city.name}} </td>
         <td> {{hotel.num_rooms}} </td>
-        <td><button @click="viewHotel(hotel.id)" class="btn btn-warning btn-sm">Detalle </button></td>
+        <td><button @click="viewHotel(hotel.id,hotel.name)" class="btn btn-warning btn-sm">Detalle </button></td>
         <td><button  @click="viewFormHotelNewRoom(hotel.id,hotel.name)" class="btn btn-success btn-sm">Habitaciones </button></td>
     </tr>
     </tbody>
@@ -63,9 +63,10 @@ export default {
         viewFormHotelCreate() {
             this.$router.push({ name: 'HotelCreate'})
         },
-        viewHotel(id){
-
-            alert(id)
+        viewHotel(id, hotel){
+            
+            this.$router.push({ name: 'UpdateHotelRooms',params:{PidRoom:id,Namehotel:hotel}})
+           // alert(id)
         },
         viewFormHotelNewRoom(id, hotel) { 
             this.$router.push({ name: 'HotelRooms',params:{Pid:id,Name:hotel}})
