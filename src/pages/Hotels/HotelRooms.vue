@@ -63,7 +63,7 @@
                     this.$router.push({ name: 'HotelRoomsUpdate', params:{PidRoom2:id}})
                 },
                 viewNewRooms(){
-                    this.$router.push({ name: 'HotelNewRoom', params:{Pid:id,Name:hotel}})
+                    this.$router.push({ name: 'HotelNewRoom'})
                 },
                 removeRoominHotel(id){
                     axios
