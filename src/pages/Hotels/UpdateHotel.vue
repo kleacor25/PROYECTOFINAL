@@ -29,7 +29,7 @@
                 <div class="col">
                     <label for="ciudad" class="form-label">Ciudad</label>
                     <select class="form-select" id="ciudad" v-model="hotel.city_id" >
-                        <option v-for="ciudad in cities" :value="ciudad.id" :key="ciudad.id">{{ ciudad.name }}</option>
+                        <option v-for="ciudad in cities" :value="ciudad.id" :key="ciudad.id">{{ ciudad.name}}</option>
                     </select>
                 </div> 
                 <div class="col">
@@ -41,7 +41,7 @@
                     <button @click="UpdateHotel" type="submit" class="btn btn-primary ">Actualizar Hotel</button>
                 </div> 
                 <div class="col-md-4">
-                    <button @click="removeHotel(this.$route.params.PidRoom)" type="submit" class="btn btn-danger ">Eliminar</button>
+                    <button @click="removeHotel(this.$route.params.PidRoom)" type="submit" class="btn btn-danger">Eliminar</button>
                 </div> 
                 <div class="col">
                     
@@ -50,7 +50,7 @@
     
             <div v-if="info" class="alert alert-primary mt-3" role="alert">
                 {{info}}
-            </div>
+             </div>
   
         </div>
     </div>

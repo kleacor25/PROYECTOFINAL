@@ -12,10 +12,12 @@ import InicioPage from '@/pages/InicioPage.vue'
 import HotelsPage from '@/pages/HotelsPage.vue'
 import HotelCreate from '@/pages/Hotels/HotelCreate.vue'
 import RoomsPage from '@/pages/TypeRoomsPage.vue'
+import AccommodationsPages from '@/pages/HotelAccommodations.vue'
 import HotelRoomsPage from '@/pages/Hotels/HotelRooms.vue'
 import UpdateHotelRooms from '@/pages/Hotels/UpdateHotel.vue'
 import HotelRoomsUpdate from '@/pages/Hotels/HotelRoomUpdate.vue'
 import HotelRoomsNew from '@/pages/Hotels/HotelNewRoom.vue'
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -23,6 +25,7 @@ const router = createRouter({
         {path: '/hotels', name:'HotelsPage', component: HotelsPage},
         {path: '/hotelcreate', name:'HotelCreate', component: HotelCreate},
         {path: '/rooms',  name:'RoomsPage',  component: RoomsPage},
+        {path: '/accommodations',  name:'AccommodationsPages',  component: AccommodationsPages},
         {path: '/hptenewroom',  name:'HotelRoomsnewRoww',  component: HotelRoomsNew},
         {path: '/hotelroomsupdate/:PidRoom2',  name:'HotelRoomsUpdate',  component: HotelRoomsUpdate},
         {path: '/hotelrooms/:Pid:Name',  name:'HotelRooms',  component: HotelRoomsPage},

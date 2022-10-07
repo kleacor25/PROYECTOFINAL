@@ -16,6 +16,9 @@
         <li class="nav-item">
             <router-link to="/rooms" class="nav-link" aria-current="page" href="#">Tipo de Habitaciones</router-link>
         </li>
+        <li class="nav-item">
+            <router-link to="/accommodations" class="nav-link" aria-current="page" href="#">Acomodaciones</router-link>
+        </li>
         </ul>
     </div>
     </div>

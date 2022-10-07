@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>CREAR NUEVA HABITACIÓN PARA EL HOTEL {{this.$route.params.PidRoom2}}</h3>
+        <h3>ACTUALIZAR HABITACIÓN PARA EL HOTEL {{this.$route.params.PidRoom2}}</h3>
     
         <div class="container">
                 <div>
@@ -32,7 +32,7 @@
                             </div>
                 
                             <div class="col-6">
-                                    <button @click="sendRoom" type="submit" class="btn btn-primary ">Actulizar</button>
+                                    <button @click="sendRoom" type="submit" class="btn btn-primary ">Actualizar</button>
                             </div>
                         </div>
             
