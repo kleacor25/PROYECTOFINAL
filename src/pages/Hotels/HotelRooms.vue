@@ -7,7 +7,7 @@
             </div>
             <div class="col">
                 <div class="float-end">
-                    <button @click="viewNewRooms()" class="btn btn-success btn-sm">Crear habitacion</button>
+                    <button @click="viewNewRooms()" class="btn btn-success btn-sm">Crear habitacion </button>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <td> {{rooms.type.name}}</td>
             <td> {{rooms.accommodation.name}}</td>
             <td> {{rooms.quantity}} </td>
-            <td><button @click="viewHotelRoomsUpdate(rooms.id)" class="btn btn-warning btn-sm">editar </button></td>
+            <td><button @click="viewHotelRoomUpdate(rooms.id)" class="btn btn-warning btn-sm">editar </button></td>
             <td><button @click="removeRoominHotel(rooms.id)"  class="btn btn-danger btn-sm">eleminar</button></td>
         </tr>
         </tbody>
@@ -59,11 +59,11 @@
             },
             
             methods: {
-                viewHotelRoomsUpdate(id){
+                viewHotelRoomUpdate(id){
                     this.$router.push({ name: 'HotelRoomsUpdate', params:{PidRoom2:id}})
                 },
                 viewNewRooms(){
-                    this.$router.push({ name: 'HotelNewRoom'})
+                    this.$router.push({ name: 'HotelRoomsnewRoww'})
                 },
                 removeRoominHotel(id){
                     axios

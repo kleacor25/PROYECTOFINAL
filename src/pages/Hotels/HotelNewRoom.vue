@@ -52,7 +52,7 @@
      import axios from 'axios'
     
     export default {
-
+          
         beforeMount() {
             this.room.hotel_id = "129"
             },
