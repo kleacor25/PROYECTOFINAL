@@ -53,73 +53,73 @@
     
     export default {
 
- beforeMount() {
-    this.room.hotel_id = "129"
-    },
-        
-        data() {
-            return {
-                info: null,
-                roomtypes: [
+        beforeMount() {
+            this.room.hotel_id = "129"
+            },
+                
+                data() {
+                    return {
+                        info: null,
+                        roomtypes: [
+                                {
+                                    "id": 1,
+                                    "name": "JUNIOR"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "ESTANDAR"
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "SUITE"
+                                }
+                            ],
+                        acomodaciones: [
                         {
-                            "id": 1,
-                            "name": "JUNIOR"
-                        },
-                        {
-                            "id": 2,
-                            "name": "ESTANDAR"
-                        },
-                        {
-                            "id": 3,
-                            "name": "SUITE"
+                                    "id": 1,
+                                    "name": "TRIPLE"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "DOBLE"
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "SENCILLA"
+                                },
+                                {
+                                    "id": 4,
+                                    "name": "CUADRUPLE"
+                                }
+                        ], 
+                        room: {
+                            hotel_id: null,
+                            room_type_id: null,
+                            accommodation_id:null,
+                            quantity: null,
                         }
-                    ],
-                acomodaciones: [
-                {
-                            "id": 1,
-                            "name": "TRIPLE"
-                        },
-                        {
-                            "id": 2,
-                            "name": "DOBLE"
-                        },
-                        {
-                            "id": 3,
-                            "name": "SENCILLA"
-                        },
-                        {
-                            "id": 4,
-                            "name": "CUADRUPLE"
-                        }
-                ], 
-                room: {
-                    hotel_id: null,
-                    room_type_id: null,
-                    accommodation_id:null,
-                    quantity: null,
-                 }
-            }
-        },
-        methods: {
-            sendRoom(){
+                    }
+                },
+                methods: {
+                    sendRoom(){
 
-                axios({
-                    method: 'post',
-                    url: 'http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms',
-                    data: this.room,
-                    responseType: 'json',
-                }) 
-                .then(response => {  
-                    this.info = response.data.message
-                    
-                    this.room.hotel_id = null
-                    this.room.room_type_id = null
-                    this.room.accommodation_id = null
-                    this.room.quantity = null              
-                })
-                .catch()            
+                        axios({
+                            method: 'post',
+                            url: 'http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms',
+                            data: this.room,
+                            responseType: 'json',
+                        }) 
+                        . then(response=>{  
+                            this.info = response.data.message
+
+                            this.room.hotel_id = null
+                            this.room.room_type_id = null
+                            this.room.accommodation_id = null
+                            this.room.quantity = null              
+                        })
+                        .catch()            
+                    }
+                },
             }
-        },
-    }
-    
+            
     </script>

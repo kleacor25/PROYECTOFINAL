@@ -32,7 +32,7 @@
                             </div>
                 
                             <div class="col-6">
-                                    <button @click="sendRoom" type="submit" class="btn btn-primary ">Actualizar</button>
+                                    <button @click="viewHotelRoomsUpdate" type="submit" class="btn btn-primary ">Actualizar</button>
                             </div>
                         </div>
             
@@ -104,7 +104,7 @@
             }
         },
         methods: {
-            sendRoom(){
+            viewHotelRoomsUpdate(){
                 axios({
                     method: 'put',
                     url: 'http://ec2-44-201-108-206.compute-1.amazonaws.com/decameron/api/rooms/'+this.$route.params.PidRoom2,
